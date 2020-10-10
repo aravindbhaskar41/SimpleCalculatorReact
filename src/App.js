@@ -1,11 +1,19 @@
 import React from "react";
 import "./styles.css";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Row from "./components/Row";
 import Button from "@material-ui/core/Button";
 import { evaluate } from "mathjs";
 export default function App() {
   const [expression, setExpression] = React.useState("");
+
+  const theme = createMuiTheme({
+    typography: {
+      fontFamily: "Roboto",
+      fontSize: 12
+    }
+  });
 
   const handleClick = (_el) => {
     if (_el === "C") {
@@ -44,7 +52,12 @@ export default function App() {
   ];
   return (
     <>
-      <h1>Simple Calculator using React</h1>
+      <ThemeProvider theme={theme}>
+        <Typography variant="h3" component="h2">
+          Simple Calculator using React
+        </Typography>
+        <br />
+      </ThemeProvider>
       <div className="container">
         <Typography className="screen" variant="subtitle1" component="h2">
           {expression}
