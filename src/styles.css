@@ -8,7 +8,7 @@ body {
   margin-left: 10%;
 }
 .container {
-  margin-left: 4%;
+  margin-left: 1%;
   padding: 13px;
   width: 24%;
   background-color: slategray;
@@ -33,7 +33,7 @@ body {
 }
 .numbersButton {
   height: 24%;
-  margin: 1px;
+  margin: 2px;
 }
 .equalsButton {
   background-color: navajowhite;
