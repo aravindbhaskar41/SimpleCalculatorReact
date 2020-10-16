@@ -1,20 +1,32 @@
 import React from "react";
 import "./styles.css";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Row from "./components/Row";
 import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/styles";
 import { evaluate } from "mathjs";
+
+const useStyle = makeStyles({
+  equalsButton: {
+    background: "#FFDEAD"
+  },
+  app: {
+    fontFamily: "Roboto",
+    textAlign: "left"
+  },
+  screen: {
+    height: 33,
+    width: "100%",
+    fontSize: 20,
+    background: "white",
+    border: "1px solid black"
+  }
+});
+
 export default function App() {
   const [expression, setExpression] = React.useState("");
-
-  const theme = createMuiTheme({
-    typography: {
-      fontFamily: "Roboto",
-      fontSize: 12
-    }
-  });
-
+  const classes = useStyle();
   const handleClick = (_el) => {
     if (_el === "C") {
       console.log("clear is clicked");
@@ -51,26 +63,25 @@ export default function App() {
     ["C", 0, ".", "/"]
   ];
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <Typography variant="h3" component="h2">
-          Simple Calculator using React
-        </Typography>
-        <br />
-      </ThemeProvider>
+    <Box className={classes.app}>
+      <h1>Simple Calculator using React</h1>
       <div className="container">
-        <Typography className="screen" variant="subtitle1" component="h2">
+        <Typography
+          className={classes.screen}
+          variant="subtitle1"
+          component="h2"
+        >
           {expression}
         </Typography>
         <br />
-        <div className="keypad">
+        <Box className="keypad" width={"100%"}>
           <div className="numbers">
             {buttonsArr.map((el) => (
               <Row buttonsRow={el} onClick={handleClick} />
             ))}
           </div>
           <Button
-            className="equalsButton"
+            className={classes.equalsButton}
             variant="contained"
             id="evaluate"
             onClick={calculate}
@@ -78,8 +89,8 @@ export default function App() {
             =
           </Button>
           <br />
-        </div>
+        </Box>
       </div>
-    </>
+    </Box>
   );
 }

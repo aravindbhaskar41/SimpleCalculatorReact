@@ -10,7 +10,7 @@ body {
 .container {
   margin-left: 1%;
   padding: 13px;
-  width: 24%;
+  width: 346px;
   background-color: slategray;
   border: 1px solid black;
 }
@@ -23,18 +23,11 @@ body {
 }
 .numbers {
   width: 80%;
-  height: 100%;
+  height: 97%;
 }
 .keypad {
   height: 200px;
   width: 100%;
   display: flex;
   /*border: 1px solid black;*/
-}
-.numbersButton {
-  height: 24%;
-  margin: 2px;
-}
-.equalsButton {
-  background-color: navajowhite;
 }
